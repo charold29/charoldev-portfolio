@@ -5,6 +5,7 @@ import {
     AiFillGithub
 } from 'react-icons/ai'
 import { useState } from 'react';
+import './index.css'
 
 export default function Portfolio(){
     const [darkMode, setDarkMode] = useState(false) 
