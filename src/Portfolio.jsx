@@ -1,4 +1,7 @@
-import { BsFillMoonStarsFill } from 'react-icons/bs';
+import { 
+    BsFillMoonStarsFill,
+    BsFillCheckCircleFill 
+} from 'react-icons/bs';
 import { 
     AiFillTwitterCircle,
     AiFillLinkedin,
@@ -8,7 +11,7 @@ import { useState } from 'react';
 import './Portfolio.css'
 
 export default function Portfolio(){
-    const [darkMode, setDarkMode] = useState(false) 
+    const [darkMode, setDarkMode] = useState(false)
     return(
         <div className={darkMode ? "dark" : ""}>
             <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla'>
@@ -47,14 +50,23 @@ export default function Portfolio(){
                 <section>
                     <div>
                         <h3 className='text-3xl py-1 dark:text-white'>Last Projects</h3>
-                        <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
-                            - VUCE 2.0 project in <span className='text-emerald-500'><a href="https://www.linkedin.com/company/g&s-gestion-y-sistemas-sac/">G&S</a></span>
-                            ,&nbsp;a technological innovation and digital transformation consultancy, recognized by Microsoft as the best partner of the year. They provide Big Data & Analytics, Infrastructure and Cloud Services, Development and Innovation and Modern Workplace solutions.
-                        </p>
-                        <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
-                            - Development and chatbot maintenance in <span className='text-emerald-500'><a href="https://www.linkedin.com/company/miahhh/">Miah</a></span>
-                            ,&nbsp;company that was born to transform health and well-being in organizations.
-                        </p>
+                        <ul className='list-disc list-inside'>
+                            <li className='flex place-items-center space-x-5'>
+                                <BsFillCheckCircleFill className='flex-shrink-0'/>
+                                <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
+                                VUCE 2.0 project in <span className='text-emerald-500'><a href="https://www.linkedin.com/company/g&s-gestion-y-sistemas-sac/">G&S</a></span>
+                                    ,&nbsp;a technological innovation and digital transformation consultancy, recognized by Microsoft as the best partner of the year. They provide Big Data & Analytics, Infrastructure and Cloud Services, Development and Innovation and Modern Workplace solutions.
+                                </p>
+                            </li>
+                            <li className='flex place-items-center space-x-5'>
+                                <BsFillCheckCircleFill />    
+                                <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
+                                Development and chatbot maintenance in <span className='text-emerald-500'><a href="https://www.linkedin.com/company/miahhh/">Miah</a></span>
+                                ,&nbsp;company that was born to transform health and well-being in organizations.
+                                </p>
+                            </li>
+                        </ul>
+                        
                     </div>
                     <div className="lg:flex gap-10 justify-center">
                         <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
