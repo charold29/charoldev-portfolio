@@ -44,7 +44,7 @@ export default function Portfolio(){
                         <a href="https://github.com/charold29"><AiFillGithub /></a>
                     </div>
                     <div className='my-image mx-auto bg-gradient-to-b from-emerald-500 rounded-full w-80 h-80 mt-10 overflow-hidden md:h-96 md:w-96'>
-                        <img src='../public/images/avatar.webp'></img>
+                        <img src='../avatar.webp'></img>
                     </div>
                 </section>
                 <section>
@@ -70,7 +70,7 @@ export default function Portfolio(){
                     </div>
                     <div className="lg:flex gap-10 justify-center">
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./public/images/computer-dynamic-color.png' className='w-32 mx-auto'></img>
+                            <img src='./computer-dynamic-color.png' className='w-32 mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Programming Languages</h4>
                             <p className='text-gray-800 py-1'>Java</p>
                             <p className='text-gray-800 py-1'>JavaScript</p>
@@ -80,7 +80,7 @@ export default function Portfolio(){
                             <p className='text-gray-800 py-1'>C#</p>
                         </div>
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./public/images/bookmark-fav-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
+                            <img src='./bookmark-fav-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Frameworks and Skills</h4>
                             <p className='text-gray-800 py-1'>Azure / AWS / IBM Cloud</p>
                             <p className='text-gray-800 py-1'>Spring</p>
@@ -91,7 +91,7 @@ export default function Portfolio(){
                             <p className='text-gray-800 py-1'>Rasa</p>
                         </div>
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./public/images/medal-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
+                            <img src='./medal-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Certifications</h4>
                             <p className='text-gray-800 underline py-1'><a href='https://www.freecodecamp.org/certification/CharolDev/javascript-algorithms-and-data-structures'>JavaScript Algorithms and Data Structures</a></p>
                             <p className='text-gray-800 underline py-1'><a href='https://www.sololearn.com/Certificate/CT-TWT9XQMA/png'>Java - Certified Course</a></p>
