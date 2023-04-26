@@ -52,16 +52,16 @@ export default function Portfolio(){
                         <h3 className='text-3xl py-1 dark:text-white'>Last Projects</h3>
                         <ul className='list-disc list-inside'>
                             <li className='flex place-items-center space-x-5'>
-                                <BsFillCheckCircleFill className='flex-shrink-0'/>
+                                <BsFillCheckCircleFill className='text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0' />
                                 <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
-                                VUCE 2.0 project in <span className='text-emerald-500'><a href="https://www.linkedin.com/company/g&s-gestion-y-sistemas-sac/">G&S</a></span>
+                                VUCE 2.0 project in <span className='text-emerald-600 dark:text-emerald-400'><a href="https://www.linkedin.com/company/g&s-gestion-y-sistemas-sac/">G&S</a></span>
                                     ,&nbsp;a technological innovation and digital transformation consultancy, recognized by Microsoft as the best partner of the year. They provide Big Data & Analytics, Infrastructure and Cloud Services, Development and Innovation and Modern Workplace solutions.
                                 </p>
                             </li>
                             <li className='flex place-items-center space-x-5'>
-                                <BsFillCheckCircleFill />    
+                                <BsFillCheckCircleFill className='text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0' />    
                                 <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
-                                Development and chatbot maintenance in <span className='text-emerald-500'><a href="https://www.linkedin.com/company/miahhh/">Miah</a></span>
+                                Development and chatbot maintenance in <span className='text-emerald-600 dark:text-emerald-400'><a href="https://www.linkedin.com/company/miahhh/">Miah</a></span>
                                 ,&nbsp;company that was born to transform health and well-being in organizations.
                                 </p>
                             </li>
@@ -69,8 +69,8 @@ export default function Portfolio(){
                         
                     </div>
                     <div className="lg:flex gap-10 justify-center">
-                        <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./public/images/programming-languages.png' className='w-32 mx-auto'></img>
+                        <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
+                            <img src='./public/images/computer-dynamic-color.png' className='w-32 mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Programming Languages</h4>
                             <p className='text-gray-800 py-1'>Java</p>
                             <p className='text-gray-800 py-1'>JavaScript</p>
@@ -79,8 +79,8 @@ export default function Portfolio(){
                             <p className='text-gray-800 py-1'>C++</p>
                             <p className='text-gray-800 py-1'>C#</p>
                         </div>
-                        <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./public/images/frameworks-and-skills.jpg' className='w-32 h-32 object-contain mx-auto'></img>
+                        <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
+                            <img src='./public/images/bookmark-fav-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Frameworks and Skills</h4>
                             <p className='text-gray-800 py-1'>Azure / AWS / IBM Cloud</p>
                             <p className='text-gray-800 py-1'>Spring</p>
@@ -90,8 +90,8 @@ export default function Portfolio(){
                             <p className='text-gray-800 py-1'>Docker</p>
                             <p className='text-gray-800 py-1'>Rasa</p>
                         </div>
-                        <div className='text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./public/images/certifications.png' className='w-32 h-32 object-contain mx-auto'></img>
+                        <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
+                            <img src='./public/images/medal-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Certifications</h4>
                             <p className='text-gray-800 underline py-1'><a href='https://www.freecodecamp.org/certification/CharolDev/javascript-algorithms-and-data-structures'>JavaScript Algorithms and Data Structures</a></p>
                             <p className='text-gray-800 underline py-1'><a href='https://www.sololearn.com/Certificate/CT-TWT9XQMA/png'>Java - Certified Course</a></p>
