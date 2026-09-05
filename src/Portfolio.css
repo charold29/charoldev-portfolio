@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile browsers resize the viewport as the address bar shows/hides,
+   which recalculates 100vh mid-scroll and stalls native scrolling.
+   @supports (not duplicate declarations) survives CSS minification. */
+@supports (min-height: 100dvh) {
+  .min-h-screen {
+    min-height: 100dvh;
+  }
+}
+
 @font-face {
   font-family: "karla";
   src: url("../public/Karla-Regular.otf");

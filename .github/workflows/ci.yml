@@ -30,3 +30,45 @@ jobs:
 
       - name: Build
         run: npm run build
+
+  deploy:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout charoldev-portfolio
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Checkout charold29.github.io (gh-pages)
+        uses: actions/checkout@v6
+        with:
+          repository: charold29/charold29.github.io
+          ref: gh-pages
+          path: gh-pages-repo
+          token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+
+      - name: Preserve non-build files
+        run: |
+          cp -r gh-pages-repo/.claude dist/.claude
+          cp gh-pages-repo/README.md dist/README.md
+
+      - name: Publish to charold29.github.io
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+          external_repository: charold29/charold29.github.io
+          publish_branch: gh-pages
+          publish_dir: ./dist
+          commit_message: "Deploy build from charoldev-portfolio@${{ github.sha }}"

@@ -7,68 +7,14 @@ import {
     AiFillGithub,
     AiOutlineMail
 } from 'react-icons/ai'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './Portfolio.css'
 
 export default function Portfolio(){
     const [darkMode, setDarkMode] = useState(false)
 
-    // Infinite-loop scroll: the page content is rendered twice back to back.
-    // Once the user scrolls past the height of one copy, we silently jump the
-    // scroll position back by that same height — since both copies are
-    // pixel-identical, the jump is invisible and the page feels endless.
-    useEffect(() => {
-        const SLOWNESS = 0.08
-        let targetY = window.scrollY
-        let animating = false
-
-        const getBlockHeight = () => document.documentElement.scrollHeight / 2
-
-        const wrapIfNeeded = () => {
-            const blockHeight = getBlockHeight()
-            if (window.scrollY >= blockHeight) {
-                window.scrollTo(0, window.scrollY - blockHeight)
-                targetY -= blockHeight
-            }
-        }
-
-        const step = () => {
-            const currentY = window.scrollY
-            const diff = targetY - currentY
-            if (Math.abs(diff) <= 1) {
-                window.scrollTo(0, targetY)
-                wrapIfNeeded()
-                animating = false
-                return
-            }
-            const eased = diff * SLOWNESS
-            const nextY = currentY + (Math.abs(eased) < 1 ? Math.sign(eased) : eased)
-            window.scrollTo(0, nextY)
-            wrapIfNeeded()
-            if (window.scrollY === currentY && nextY !== currentY) {
-                // Browser can't scroll any further up — real top edge reached.
-                targetY = window.scrollY
-                animating = false
-                return
-            }
-            requestAnimationFrame(step)
-        }
-
-        const onWheel = (e) => {
-            if (e.ctrlKey) return
-            e.preventDefault()
-            targetY = Math.max(targetY + e.deltaY, 0)
-            if (!animating) {
-                animating = true
-                requestAnimationFrame(step)
-            }
-        }
-
-        window.addEventListener('wheel', onWheel, { passive: false })
-        return () => window.removeEventListener('wheel', onWheel)
-    }, [])
-
-    const pageContent = (
+    return (
+        <div className={darkMode ? "dark" : ""}>
             <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla select-none'>
                 <section className='min-h-screen'>
                     <nav className='py-10 mb-10 flex justify-between'>
@@ -163,12 +109,6 @@ export default function Portfolio(){
                     </div>
                 </footer>
             </main>
-    )
-
-    return(
-        <div className={darkMode ? "dark" : ""}>
-            {pageContent}
-            {pageContent}
         </div>
     )
 }
