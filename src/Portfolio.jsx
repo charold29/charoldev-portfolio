@@ -151,8 +151,8 @@ export default function Portfolio(){
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
                             <img src='./medal-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Certifications</h4>
-                            <p className='text-gray-800 py-1'>Microsoft Certified: Azure Fundamentals (AZ-900) — 2025</p>
-                            <p className='text-gray-800 py-1'>GitHub Foundations — 2026</p>
+                            <p className='text-gray-800 underline py-1'><a href='https://learn.microsoft.com/en-us/users/charoldev/credentials/d7d70f4178a2d6c0'>Microsoft Certified: Azure Fundamentals (AZ-900) — 2025</a></p>
+                            <p className='text-gray-800 underline py-1'><a href='https://learn.microsoft.com/es-es/users/charoldev/credentials/92854bca3ea7a319'>GitHub Foundations — 2026</a></p>
                             <p className='text-gray-800 underline py-1'><a href='https://verify.openedg.org/?id=fe2x.TDed.4rCW'>PCEP – Certified Entry-Level Python Programmer</a></p>
                         </div>
                     </div>
