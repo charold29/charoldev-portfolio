@@ -14,7 +14,7 @@ export default function Portfolio(){
     const [darkMode, setDarkMode] = useState(false)
     return(
         <div className={darkMode ? "dark" : ""}>
-            <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla'>
+            <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla select-none'>
                 <section className='min-h-screen'>
                     <nav className='py-10 mb-10 flex justify-between'>
                         <a href='#' className='text-xl dark:text-gray-200 font-burtons'>CharolDev</a>
