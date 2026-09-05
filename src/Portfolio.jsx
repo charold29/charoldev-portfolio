@@ -1,11 +1,11 @@
-import { 
+import {
     BsFillMoonStarsFill,
-    BsFillCheckCircleFill 
+    BsFillCheckCircleFill
 } from 'react-icons/bs';
-import { 
-    AiFillTwitterCircle,
+import {
     AiFillLinkedin,
-    AiFillGithub
+    AiFillGithub,
+    AiOutlineMail
 } from 'react-icons/ai'
 import { useState } from 'react';
 import './Portfolio.css'
@@ -32,14 +32,14 @@ export default function Portfolio(){
                             Harold Rojas
                         </h2>
                         <h3 className='text-2xl py-2 dark:text-white md:text-3xl'>
-                            Software Developer
+                            Senior Java Backend Engineer
                         </h3>
                         <p className='text-md py-5 leading-8 text-gray-800 dark:text-gray-200 md:text-xl max-w-xl mx-auto'>
-                            I am a software developer with experience in projects under agile methodologies such as SCRUM, with analytical capacity, responsibility and willingness to work as a team in different companies.
+                            Java backend engineer with 6+ years building mission-critical systems for banking, fintech, retail, and government. Currently at NTT DATA delivering consumer-lending microservices for Banco de Crédito del Perú (BCP) on Quarkus and Spring, with OAuth 2.0 / OIDC authentication and JWT-based entitlements. Advanced English; available for remote work fully aligned with US Central Time.
                         </p>
                     </div>
                     <div className='text-5xl flex justify-center gap-16 text-gray-600 dark:text-gray-400'>
-                        <a href="https://twitter.com/CharoldR29"><AiFillTwitterCircle /></a>
+                        <a href="mailto:harolrop14@gmail.com"><AiOutlineMail /></a>
                         <a href="https://www.linkedin.com/in/haroldrojasp/"><AiFillLinkedin /></a>
                         <a href="https://github.com/charold29"><AiFillGithub /></a>
                     </div>
@@ -49,61 +49,62 @@ export default function Portfolio(){
                 </section>
                 <section>
                     <div>
-                        <h3 className='text-3xl py-1 dark:text-white'>Last Projects</h3>
+                        <h3 className='text-3xl py-1 dark:text-white'>Professional Experience</h3>
                         <ul className='list-disc list-inside'>
                             <li className='flex place-items-center space-x-5'>
                                 <BsFillCheckCircleFill className='text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0' />
                                 <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
-                                VUCE 2.0 project in <span className='text-emerald-600 dark:text-emerald-400'><a href="https://www.linkedin.com/company/g&s-gestion-y-sistemas-sac/">G&S</a></span>
-                                    ,&nbsp;a technological innovation and digital transformation consultancy, recognized by Microsoft as the best partner of the year. They provide Big Data & Analytics, Infrastructure and Cloud Services, Development and Innovation and Modern Workplace solutions.
+                                <span className='text-emerald-600 dark:text-emerald-400'>Lead Engineer, NTT DATA Europe & Latam</span> (Oct 2024 – Present) — building consumer-lending microservices for Banco de Crédito del Perú (BCP), Peru&apos;s largest bank, on Quarkus and Spring: OAuth 2.0 / OIDC authentication with RS256 JWT entitlements, Jenkins CI/CD with canary releases and Fortify SAST gates, and Elasticsearch/Kibana and Grafana observability.
                                 </p>
                             </li>
                             <li className='flex place-items-center space-x-5'>
-                                <BsFillCheckCircleFill className='text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0' />    
+                                <BsFillCheckCircleFill className='text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0' />
                                 <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
-                                Development and chatbot maintenance in <span className='text-emerald-600 dark:text-emerald-400'><a href="https://www.linkedin.com/company/miahhh/">Miah</a></span>
-                                ,&nbsp;company that was born to transform health and well-being in organizations.
+                                <span className='text-emerald-600 dark:text-emerald-400'>Senior Developer, Whiz / 10Pearls</span> (Aug 2023 – Sep 2024) — owned the order and shipping microservices for Elektra&apos;s supplier portal end to end on AWS ECS with Docker and Kubernetes, event-driven flows with Kafka, and VTEX commerce platform integration.
+                                </p>
+                            </li>
+                            <li className='flex place-items-center space-x-5'>
+                                <BsFillCheckCircleFill className='text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0' />
+                                <p className='text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify'>
+                                <span className='text-emerald-600 dark:text-emerald-400'>Earlier Experience</span> (2020 – 2023) — Java/Spring Boot systems across payments (Redeban, Colombia), government (MINCETUR VUCE 2.0, Peru), healthcare (Hospital Belén de Trujillo), and enterprise modernization (NEKSYS Servicios Empresariales).
                                 </p>
                             </li>
                         </ul>
-                        
+
                     </div>
                     <div className="lg:flex gap-10 justify-center">
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
                             <img src='./computer-dynamic-color.png' className='w-32 mx-auto'></img>
-                            <h4 className='py-4 font-bold text-emerald-600'>Programming Languages</h4>
-                            <p className='text-gray-800 py-1'>Java</p>
-                            <p className='text-gray-800 py-1'>JavaScript</p>
-                            <p className='text-gray-800 py-1'>TypeScript</p>
-                            <p className='text-gray-800 py-1'>Python</p>
-                            <p className='text-gray-800 py-1'>C++</p>
-                            <p className='text-gray-800 py-1'>C#</p>
+                            <h4 className='py-4 font-bold text-emerald-600'>Languages & Frameworks</h4>
+                            <p className='text-gray-800 py-1'>Java 8 / 11 / 17</p>
+                            <p className='text-gray-800 py-1'>Spring Boot / Spring Security</p>
+                            <p className='text-gray-800 py-1'>Quarkus</p>
+                            <p className='text-gray-800 py-1'>OAuth 2.0 / OIDC / JWT</p>
+                            <p className='text-gray-800 py-1'>TypeScript / Angular</p>
+                            <p className='text-gray-800 py-1'>Node.js</p>
                         </div>
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
                             <img src='./bookmark-fav-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
-                            <h4 className='py-4 font-bold text-emerald-600'>Frameworks and Skills</h4>
-                            <p className='text-gray-800 py-1'>Azure / AWS / IBM Cloud</p>
-                            <p className='text-gray-800 py-1'>Spring</p>
-                            <p className='text-gray-800 py-1'>Maven / Gradle</p>
-                            <p className='text-gray-800 py-1'>Angular</p>
-                            <p className='text-gray-800 py-1'>Git</p>
-                            <p className='text-gray-800 py-1'>Docker</p>
-                            <p className='text-gray-800 py-1'>Rasa</p>
+                            <h4 className='py-4 font-bold text-emerald-600'>Cloud, Data & DevOps</h4>
+                            <p className='text-gray-800 py-1'>AWS (ECS / ECR / Secrets Manager)</p>
+                            <p className='text-gray-800 py-1'>Azure / Azure DevOps</p>
+                            <p className='text-gray-800 py-1'>Docker / Kubernetes</p>
+                            <p className='text-gray-800 py-1'>Kafka</p>
+                            <p className='text-gray-800 py-1'>PostgreSQL / MySQL / Oracle PL/SQL</p>
+                            <p className='text-gray-800 py-1'>Jenkins / Git / Fortify</p>
                         </div>
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
                             <img src='./medal-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
                             <h4 className='py-4 font-bold text-emerald-600'>Certifications</h4>
-                            <p className='text-gray-800 underline py-1'><a href='https://www.freecodecamp.org/certification/CharolDev/javascript-algorithms-and-data-structures'>JavaScript Algorithms and Data Structures</a></p>
-                            <p className='text-gray-800 underline py-1'><a href='https://www.sololearn.com/Certificate/CT-TWT9XQMA/png'>Java - Certified Course</a></p>
-                            <p className='text-gray-800 underline py-1'><a href='https://verify.openedg.org/?id=fe2x.TDed.4rCW'>PCEP - Certified Entry-Level Programmer</a></p>
-                            <p className='text-gray-800 underline py-1'><a href='https://drive.google.com/file/d/1HhRERYJPB8KIyfqS6vnLpM0QDvuU5HKm/view'>IoT Fundamentals: Big Data & Analytics</a></p>
-                            <p className='text-gray-800 underline py-1'><a href='https://drive.google.com/file/d/1iLgNXS08IVb2BxzhfmVb61Rk-MOVaYMF/view'>ICCNA Routing and Switching</a></p>
+                            <p className='text-gray-800 py-1'>Microsoft Certified: Azure Fundamentals (AZ-900) — 2025</p>
+                            <p className='text-gray-800 py-1'>GitHub Foundations — 2026</p>
+                            <p className='text-gray-800 underline py-1'><a href='https://verify.openedg.org/?id=fe2x.TDed.4rCW'>PCEP – Certified Entry-Level Python Programmer</a></p>
                         </div>
                     </div>
                 </section>
                 <footer className="text-gray-600 dark:bg-gray-900 py-4">
                     <div className="text-center dark:text-gray-200">
-                        <p>© 2023 - All rights reserved</p>
+                        <p>© 2026 - All rights reserved</p>
                     </div>
                 </footer>
             </main>

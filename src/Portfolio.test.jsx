@@ -6,7 +6,7 @@ describe('Portfolio', () => {
   it('renders the name and title', () => {
     render(<Portfolio />)
     expect(screen.getByText('Harold Rojas')).toBeInTheDocument()
-    expect(screen.getByText('Software Developer')).toBeInTheDocument()
+    expect(screen.getByText('Senior Java Backend Engineer')).toBeInTheDocument()
   })
 
   it('toggles dark mode when the moon icon is clicked', () => {
