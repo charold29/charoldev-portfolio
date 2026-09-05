@@ -101,8 +101,8 @@ export default function Portfolio(){
                         </div>
                     </div>
                 </section>
-                <footer class="text-gray-600 dark:bg-gray-900 py-4">
-                    <div class="text-center dark:text-gray-200">
+                <footer className="text-gray-600 dark:bg-gray-900 py-4">
+                    <div className="text-center dark:text-gray-200">
                         <p>© 2023 - All rights reserved</p>
                     </div>
                 </footer>
