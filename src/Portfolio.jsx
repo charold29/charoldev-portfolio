@@ -13,27 +13,22 @@ import './Portfolio.css'
 export default function Portfolio(){
     const [darkMode, setDarkMode] = useState(false)
 
+    // Infinite-loop scroll: the page content is rendered twice back to back.
+    // Once the user scrolls past the height of one copy, we silently jump the
+    // scroll position back by that same height — since both copies are
+    // pixel-identical, the jump is invisible and the page feels endless.
     useEffect(() => {
         const SLOWNESS = 0.08
-        const LOOP_DELAY_MS = 700
         let targetY = window.scrollY
         let animating = false
-        let loopScheduled = false
 
-        const isAtBottom = () =>
-            window.scrollY > 0 &&
-            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
+        const getBlockHeight = () => document.documentElement.scrollHeight / 2
 
-        const finishStep = () => {
-            animating = false
-            if (isAtBottom() && !loopScheduled) {
-                loopScheduled = true
-                setTimeout(() => {
-                    targetY = 0
-                    loopScheduled = false
-                    animating = true
-                    requestAnimationFrame(step)
-                }, LOOP_DELAY_MS)
+        const wrapIfNeeded = () => {
+            const blockHeight = getBlockHeight()
+            if (window.scrollY >= blockHeight) {
+                window.scrollTo(0, window.scrollY - blockHeight)
+                targetY -= blockHeight
             }
         }
 
@@ -42,16 +37,18 @@ export default function Portfolio(){
             const diff = targetY - currentY
             if (Math.abs(diff) <= 1) {
                 window.scrollTo(0, targetY)
-                finishStep()
+                wrapIfNeeded()
+                animating = false
                 return
             }
             const eased = diff * SLOWNESS
             const nextY = currentY + (Math.abs(eased) < 1 ? Math.sign(eased) : eased)
             window.scrollTo(0, nextY)
+            wrapIfNeeded()
             if (window.scrollY === currentY && nextY !== currentY) {
-                // Browser can't scroll any further in this direction — real edge reached.
+                // Browser can't scroll any further up — real top edge reached.
                 targetY = window.scrollY
-                finishStep()
+                animating = false
                 return
             }
             requestAnimationFrame(step)
@@ -71,8 +68,7 @@ export default function Portfolio(){
         return () => window.removeEventListener('wheel', onWheel)
     }, [])
 
-    return(
-        <div className={darkMode ? "dark" : ""}>
+    const pageContent = (
             <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla select-none'>
                 <section className='min-h-screen'>
                     <nav className='py-10 mb-10 flex justify-between'>
@@ -167,6 +163,12 @@ export default function Portfolio(){
                     </div>
                 </footer>
             </main>
-        </div>  
+    )
+
+    return(
+        <div className={darkMode ? "dark" : ""}>
+            {pageContent}
+            {pageContent}
+        </div>
     )
 }
