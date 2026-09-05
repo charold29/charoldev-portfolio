@@ -7,11 +7,70 @@ import {
     AiFillGithub,
     AiOutlineMail
 } from 'react-icons/ai'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Portfolio.css'
 
 export default function Portfolio(){
     const [darkMode, setDarkMode] = useState(false)
+
+    useEffect(() => {
+        const SLOWNESS = 0.08
+        const LOOP_DELAY_MS = 700
+        let targetY = window.scrollY
+        let animating = false
+        let loopScheduled = false
+
+        const isAtBottom = () =>
+            window.scrollY > 0 &&
+            window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4
+
+        const finishStep = () => {
+            animating = false
+            if (isAtBottom() && !loopScheduled) {
+                loopScheduled = true
+                setTimeout(() => {
+                    targetY = 0
+                    loopScheduled = false
+                    animating = true
+                    requestAnimationFrame(step)
+                }, LOOP_DELAY_MS)
+            }
+        }
+
+        const step = () => {
+            const currentY = window.scrollY
+            const diff = targetY - currentY
+            if (Math.abs(diff) <= 1) {
+                window.scrollTo(0, targetY)
+                finishStep()
+                return
+            }
+            const eased = diff * SLOWNESS
+            const nextY = currentY + (Math.abs(eased) < 1 ? Math.sign(eased) : eased)
+            window.scrollTo(0, nextY)
+            if (window.scrollY === currentY && nextY !== currentY) {
+                // Browser can't scroll any further in this direction — real edge reached.
+                targetY = window.scrollY
+                finishStep()
+                return
+            }
+            requestAnimationFrame(step)
+        }
+
+        const onWheel = (e) => {
+            if (e.ctrlKey) return
+            e.preventDefault()
+            targetY = Math.max(targetY + e.deltaY, 0)
+            if (!animating) {
+                animating = true
+                requestAnimationFrame(step)
+            }
+        }
+
+        window.addEventListener('wheel', onWheel, { passive: false })
+        return () => window.removeEventListener('wheel', onWheel)
+    }, [])
+
     return(
         <div className={darkMode ? "dark" : ""}>
             <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla select-none'>
