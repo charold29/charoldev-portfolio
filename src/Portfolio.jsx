@@ -15,16 +15,16 @@ export default function Portfolio(){
 
     return (
         <div className={darkMode ? "dark" : ""}>
-            <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla select-none'>
+            <main className='bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 font-karla select-none transition-colors duration-300'>
                 <section className='min-h-screen'>
-                    <nav className='py-10 mb-10 flex justify-between'>
+                    <nav className='py-10 mb-10 flex justify-between items-center'>
                         <a href='#' className='text-xl dark:text-gray-200 font-burtons'>CharolDev</a>
                         <ul className='flex items-center space-x-5'>
                             <li>
                                 <BsFillMoonStarsFill onClick={() => setDarkMode(!darkMode)} className='cursor-pointer dark:text-gray-400 text-2xl '/>
                             </li>
                             <li>
-                                <a className='bg-gradient-to-r from-emerald-500 to-indigo-500 text-white px-4 py-2 rounded-2xl' href='https://drive.google.com/file/d/17H1u3tLOwbX2PPbYZO6rYH5yQbqnEsVd/view?usp=share_link'>Resume</a>
+                                <a className='bg-gradient-to-r from-emerald-500 to-indigo-500 text-white px-4 py-2 rounded-2xl' href='https://drive.google.com/file/d/17H1u3tLOwbX2PPbYZO6rYH5yQbqnEsVd/view?usp=share_link' target='_blank' rel='noopener noreferrer'>Resume</a>
                             </li>
                         </ul>
                     </nav>
@@ -45,7 +45,7 @@ export default function Portfolio(){
                         <a href="https://github.com/charold29"><AiFillGithub /></a>
                     </div>
                     <div className='my-image mx-auto bg-gradient-to-b from-emerald-500 rounded-full w-80 h-80 mt-10 overflow-hidden md:h-96 md:w-96'>
-                        <img src='../avatar.webp'></img>
+                        <img src='/avatar.webp' alt='Harold Rojas Avatar' className='object-cover w-full h-full' />
                     </div>
                 </section>
                 <section>
@@ -74,8 +74,8 @@ export default function Portfolio(){
 
                     </div>
                     <div className="lg:flex gap-10 justify-center">
-                        <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
-                            <img src='./computer-dynamic-color.png' className='w-32 mx-auto'></img>
+                        <div className='text-center shadow-lg dark:shadow-emerald-900/40 p-10 rounded-xl my-10 bg-white dark:bg-gray-800 flex-1 border border-gray-100 dark:border-gray-700'>
+                            <img src='/computer-dynamic-color.png' alt='Languages icon' className='w-32 mx-auto' />
                             <h4 className='py-4 font-bold text-emerald-600'>Languages & Frameworks</h4>
                             <p className='text-gray-800 py-1'>Java 8 / 11 / 17</p>
                             <p className='text-gray-800 py-1'>Spring Boot / Spring Security</p>
