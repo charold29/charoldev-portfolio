@@ -47,15 +47,18 @@ export const SKILLS_CATEGORIES = [
 
 export const CERTIFICATIONS = [
   {
-    title: "Microsoft Certified: Azure Fundamentals (AZ-900) — 2025",
-    link: "https://learn.microsoft.com/en-us/users/charoldev/credentials/d7d70f4178a2d6c0"
+    title: "Microsoft Certified: Azure Fundamentals",
+    link: "https://learn.microsoft.com/en-us/users/charoldev/credentials/d7d70f4178a2d6c0",
+    previewImg: "/preview/azure-900-cert.webp"
   },
   {
-    title: "GitHub Foundations — 2026",
-    link: "https://learn.microsoft.com/es-es/users/charoldev/credentials/92854bca3ea7a319"
+    title: "GitHub Foundations",
+    link: "https://learn.microsoft.com/es-es/users/charoldev/credentials/92854bca3ea7a319",
+    previewImg: "/preview/github-foundations-cert.webp"
   },
   {
     title: "PCEP – Certified Entry-Level Python Programmer",
-    link: "https://verify.openedg.org/?id=fe2x.TDed.4rCW"
+    link: "https://verify.openedg.org/?id=fe2x.TDed.4rCW",
+    previewImg: "/preview/python-cert.webp"
   }
 ];
