@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function ExperienceItem({ role, period, description }) {
+export default function ExperienceItem({ role, period, description, skills = [] }) {
   return (
     <div className="relative pl-8 md:pl-10 group">
       {/* Nodo/Punto de la Línea de Tiempo */}
@@ -23,6 +23,20 @@ export default function ExperienceItem({ role, period, description }) {
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify text-sm md:text-base">
           {description}
         </p>
+
+        {/* Chips de Tecnologías */}
+        {skills.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2 pt-2 border-t border-gray-100 dark:border-gray-700/40">
+            {skills.map((skill, index) => (
+              <span
+                key={index}
+                className="text-xs font-medium px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/40"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -32,4 +46,5 @@ ExperienceItem.propTypes = {
   role: PropTypes.string.isRequired,
   period: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  skills: PropTypes.arrayOf(PropTypes.string),
 };
