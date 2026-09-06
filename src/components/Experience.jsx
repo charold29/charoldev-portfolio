@@ -1,20 +1,35 @@
-import { BsFillCheckCircleFill } from 'react-icons/bs';
+import PropTypes from 'prop-types';
+import ExperienceItem from './ExperienceItem';
 import { EXPERIENCE_DATA } from '../data/portfolioData';
 
-export default function Experience() {
+export default function Experience({ items = EXPERIENCE_DATA }) {
   return (
-    <div>
-      <h3 className="text-3xl py-1 dark:text-white">Professional Experience</h3>
-      <ul className="list-disc list-inside">
-        {EXPERIENCE_DATA.map((item, index) => (
-          <li key={index} className="flex place-items-center space-x-5">
-            <BsFillCheckCircleFill className="text-emerald-600 font-medium dark:text-emerald-400 flex-shrink-0" />
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-justify">
-              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">{item.role}</span> ({item.period}) — {item.description}
-            </p>
-          </li>
+    <section className="py-12">
+      <h3 className="text-3xl font-bold mb-10 dark:text-white">
+        Professional Experience
+      </h3>
+
+      {/* Contenedor con la línea vertical */}
+      <div className="relative border-l-2 border-emerald-500/20 dark:border-emerald-500/30 ml-4 md:ml-6 space-y-12">
+        {items.map((item, index) => (
+          <ExperienceItem
+            key={index}
+            role={item.role}
+            period={item.period}
+            description={item.description}
+          />
         ))}
-      </ul>
-    </div>
+      </div>
+    </section>
   );
 }
+
+Experience.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      role: PropTypes.string.isRequired,
+      period: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+  ),
+};
