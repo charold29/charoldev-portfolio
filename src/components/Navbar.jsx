@@ -17,7 +17,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <li>
           <a
             className="bg-gradient-to-r from-emerald-500 to-indigo-500 text-white px-4 py-2 rounded-2xl"
-            href="https://drive.google.com/file/d/17H1u3tLOwbX2PPbYZO6rYH5yQbqnEsVd/view?usp=share_link"
+            href="/Harold_Rojas_CV_EN_v2.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
