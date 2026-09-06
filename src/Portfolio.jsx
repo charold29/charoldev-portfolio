@@ -77,12 +77,12 @@ export default function Portfolio(){
                         <div className='text-center shadow-lg dark:shadow-emerald-900/40 p-10 rounded-xl my-10 bg-white dark:bg-gray-800 flex-1 border border-gray-100 dark:border-gray-700'>
                             <img src='/computer-dynamic-color.png' alt='Languages icon' className='w-32 mx-auto' />
                             <h4 className='py-4 font-bold text-emerald-600'>Languages & Frameworks</h4>
-                            <p className='text-gray-800 py-1'>Java 8 / 11 / 17</p>
-                            <p className='text-gray-800 py-1'>Spring Boot / Spring Security</p>
-                            <p className='text-gray-800 py-1'>Quarkus</p>
-                            <p className='text-gray-800 py-1'>OAuth 2.0 / OIDC / JWT</p>
-                            <p className='text-gray-800 py-1'>TypeScript / Angular</p>
-                            <p className='text-gray-800 py-1'>Node.js</p>
+                            <p className='text-gray-800 dark:text-gray-300 py-1'>Java 8 / 11 / 17</p>
+                            <p className='text-gray-800 dark:text-gray-300 py-1'>Spring Boot / Spring Security</p>
+                            <p className='text-gray-800 dark:text-gray-300 py-1'>Quarkus</p>
+                            <p className='text-gray-800 dark:text-gray-300 py-1'>OAuth 2.0 / OIDC / JWT</p>
+                            <p className='text-gray-800 dark:text-gray-300 py-1'>TypeScript / Angular</p>
+                            <p className='text-gray-800 dark:text-gray-300 py-1'>Node.js</p>
                         </div>
                         <div className='text-center shadow-lg dark:shadow-emerald-500 p-10 rounded-xl my-10 dark:bg-white flex-1'>
                             <img src='./bookmark-fav-dynamic-color.png' className='w-32 h-32 object-contain mx-auto'></img>
