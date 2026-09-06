@@ -86,6 +86,10 @@ describe('Skills', () => {
         'href',
         certification.link,
       );
+      expect(screen.getByAltText(`${certification.title} preview`)).toHaveAttribute(
+        'src',
+        certification.previewImg,
+      );
     }
   });
 });
