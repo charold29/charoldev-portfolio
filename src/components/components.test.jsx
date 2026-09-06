@@ -86,7 +86,7 @@ describe('Skills', () => {
         'href',
         certification.link,
       );
-      expect(screen.getByAltText(`${certification.title} preview`)).toHaveAttribute(
+      expect(screen.getByAltText(`Preview of ${certification.title}`)).toHaveAttribute(
         'src',
         certification.previewImg,
       );
