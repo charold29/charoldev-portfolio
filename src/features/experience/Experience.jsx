@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import ExperienceItem from './ExperienceItem';
-import { EXPERIENCE_DATA } from '../data/portfolioData';
+import { EXPERIENCE_DATA } from '../../data/portfolioData';
 
 export default function Experience({ items = EXPERIENCE_DATA }) {
   return (
@@ -17,6 +17,7 @@ export default function Experience({ items = EXPERIENCE_DATA }) {
             role={item.role}
             period={item.period}
             description={item.description}
+            skills={item.skills}
           />
         ))}
       </div>
@@ -30,6 +31,7 @@ Experience.propTypes = {
       role: PropTypes.string.isRequired,
       period: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
+      skills: PropTypes.arrayOf(PropTypes.string),
     }),
   ),
 };

@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
+import Hero from './features/hero/Hero';
+import Experience from './features/experience/Experience';
+import Skills from './features/certifications/Certifications';
 import Footer from './components/Footer';
 import './Portfolio.css';
 
