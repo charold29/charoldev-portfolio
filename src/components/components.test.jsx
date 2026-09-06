@@ -15,7 +15,7 @@ describe('Navbar', () => {
     expect(screen.getByRole('link', { name: 'CharolDev' })).toHaveAttribute('href', '#');
     expect(screen.getByRole('link', { name: 'Resume' })).toHaveAttribute(
       'href',
-      'https://drive.google.com/file/d/17H1u3tLOwbX2PPbYZO6rYH5yQbqnEsVd/view?usp=share_link',
+      '/Harold_Rojas_CV_EN_v2.pdf',
     );
   });
 
