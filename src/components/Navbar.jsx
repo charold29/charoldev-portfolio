@@ -1,4 +1,5 @@
 import { BsFillMoonStarsFill } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
 export default function Navbar({ darkMode, setDarkMode }) {
   return (
@@ -27,3 +28,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
     </nav>
   );
 }
+
+Navbar.propTypes = {
+  darkMode: PropTypes.bool.isRequired,
+  setDarkMode: PropTypes.func.isRequired,
+};

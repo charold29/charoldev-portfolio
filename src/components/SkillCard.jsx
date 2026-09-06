@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export default function SkillCard({ title, icon, alt, items }) {
   return (
     <div className="text-center shadow-lg dark:shadow-2xl dark:shadow-emerald-500/30 p-10 rounded-xl my-10 bg-white dark:bg-gray-800 flex-1 border border-gray-100 dark:border-gray-700 transition-all">
@@ -11,3 +13,10 @@ export default function SkillCard({ title, icon, alt, items }) {
     </div>
   );
 }
+
+SkillCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
