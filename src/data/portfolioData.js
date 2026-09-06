@@ -47,12 +47,12 @@ export const SKILLS_CATEGORIES = [
 
 export const CERTIFICATIONS = [
   {
-    title: "Microsoft Certified: Azure Fundamentals (AZ-900) — 2025",
+    title: "Microsoft Certified: Azure Fundamentals",
     link: "https://learn.microsoft.com/en-us/users/charoldev/credentials/d7d70f4178a2d6c0",
     previewImg: "/preview/azure-900-cert.webp"
   },
   {
-    title: "GitHub Foundations — 2026",
+    title: "GitHub Foundations",
     link: "https://learn.microsoft.com/es-es/users/charoldev/credentials/92854bca3ea7a319",
     previewImg: "/preview/github-foundations-cert.webp"
   },
