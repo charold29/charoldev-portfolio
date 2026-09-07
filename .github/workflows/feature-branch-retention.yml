@@ -1,0 +1,93 @@
+name: Archive and retain feature branches
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: branch-housekeeping
+  cancel-in-progress: false
+
+jobs:
+  archive-merged-branch:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.merged == true &&
+      startsWith(github.event.pull_request.head.ref, 'feature/') &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Archive merged feature branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          timestamp=$(date -u +'%Y%m%d-%H%M%S')
+          target="archive/${BRANCH#feature/}-${timestamp}"
+
+          gh api "repos/${REPO}/git/refs" \
+            -f ref="refs/heads/${target}" \
+            -f sha="${SHA}"
+
+          # La rama original puede no existir ya si el repo borra head branches al mergear
+          gh api --method DELETE "repos/${REPO}/git/refs/heads/${BRANCH}" || true
+
+          echo "::notice::${BRANCH} archivada como ${target}"
+
+  prune-archived-branches:
+    needs: [archive-merged-branch]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Keep the 3 most recent archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO: ${{ github.repository }}
+          KEEP: '3'
+        run: |
+          set -euo pipefail
+
+          query='
+            query($owner: String!, $repo: String!) {
+              repository(owner: $owner, name: $repo) {
+                refs(refPrefix: "refs/heads/", query: "archive/", first: 100,
+                     orderBy: {field: TAG_COMMIT_DATE, direction: DESC}) {
+                  nodes { name }
+                }
+              }
+            }
+          '
+
+          # El grep anclado es la red de seguridad: solo se borra lo que
+          # empieza literalmente por archive/
+          mapfile -t list < <(
+            gh api graphql -f query="$query" -F owner="$OWNER" -F repo="$REPO_NAME" \
+              --jq '.data.repository.refs.nodes[].name' | grep '^archive/' || true
+          )
+
+          echo "Ramas archivadas encontradas: ${#list[@]}"
+
+          if [ "${#list[@]}" -le "$KEEP" ]; then
+            echo "Dentro del límite (<= ${KEEP}). Nada que borrar."
+            exit 0
+          fi
+
+          printf 'Conservando: %s\n' "${list[@]:0:$KEEP}"
+
+          for branch in "${list[@]:$KEEP}"; do
+            echo "Borrando: $branch"
+            gh api --method DELETE "repos/${REPO}/git/refs/heads/${branch}"
+          done

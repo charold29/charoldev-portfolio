@@ -6,15 +6,22 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -37,10 +44,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout charoldev-portfolio
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -52,17 +61,18 @@ jobs:
         run: npm run build
 
       - name: Checkout charold29.github.io (gh-pages)
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: charold29/charold29.github.io
           ref: gh-pages
           path: gh-pages-repo
           token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+          persist-credentials: false
 
       - name: Preserve non-build files
         run: |
-          cp -r gh-pages-repo/.claude dist/.claude
-          cp gh-pages-repo/README.md dist/README.md
+          cp -r gh-pages-repo/.claude dist/.claude || true
+          cp gh-pages-repo/README.md dist/README.md || true
 
       - name: Publish to charold29.github.io
         uses: peaceiris/actions-gh-pages@v4
