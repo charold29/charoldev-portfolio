@@ -13,7 +13,8 @@ describe('Experience', () => {
       expect(screen.getByText(new RegExp(item.period))).toBeInTheDocument();
 
       for (const skill of item.skills) {
-        expect(screen.getByText(skill)).toBeInTheDocument();
+        const expectedOccurrences = EXPERIENCE_DATA.filter((entry) => entry.skills.includes(skill)).length;
+        expect(screen.getAllByText(skill)).toHaveLength(expectedOccurrences);
       }
     }
   });
