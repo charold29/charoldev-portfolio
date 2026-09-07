@@ -8,7 +8,7 @@ export default function InfinitePageScroll({ children }) {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
 
     let currentY = 0;
     let targetY = 0;
@@ -19,8 +19,10 @@ export default function InfinitePageScroll({ children }) {
     const measure = () => {
       contentHeight = wrapper.scrollHeight / 2;
     };
-    const resizeObserver = new ResizeObserver(measure);
-    resizeObserver.observe(wrapper);
+    const resizeObserver = typeof ResizeObserver === 'undefined'
+      ? null
+      : new ResizeObserver(measure);
+    resizeObserver?.observe(wrapper);
     measure();
 
     const handleWheel = (e) => {
@@ -86,7 +88,7 @@ export default function InfinitePageScroll({ children }) {
       window.removeEventListener('touchstart', handleTouchStart);
       window.removeEventListener('touchmove', handleTouchMove);
       window.removeEventListener('keydown', handleKeyDown);
-      resizeObserver.disconnect();
+      resizeObserver?.disconnect();
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
