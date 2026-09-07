@@ -9,10 +9,14 @@ export default function Navbar({ darkMode, setDarkMode }) {
       </a>
       <ul className="flex items-center space-x-5">
         <li>
-          <BsFillMoonStarsFill
+          <button
+            type="button"
             onClick={() => setDarkMode(!darkMode)}
-            className="cursor-pointer dark:text-gray-400 text-2xl"
-          />
+            aria-label="Toggle dark mode"
+            className="flex items-center cursor-pointer dark:text-gray-400 text-2xl"
+          >
+            <BsFillMoonStarsFill />
+          </button>
         </li>
         <li>
           <a

@@ -10,15 +10,13 @@ import './Portfolio.css';
 
 function SiteContent({ darkMode, setDarkMode }) {
   return (
-    <>
+    <div className="px-10 md:px-20 lg:px-40">
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-      <div className="px-10 md:px-20 lg:px-40">
-        <Hero />
-        <Experience />
-        <Certifications />
-      </div>
+      <Hero />
+      <Experience />
+      <Certifications />
       <Footer />
-    </>
+    </div>
   );
 }
 
