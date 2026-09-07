@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+#root {
+  overflow-x: hidden;
+}
+
 /* Mobile browsers resize the viewport as the address bar shows/hides,
    which recalculates 100vh mid-scroll and stalls native scrolling.
    @supports (not duplicate declarations) survives CSS minification. */
