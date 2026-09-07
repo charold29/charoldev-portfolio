@@ -11,6 +11,6 @@ describe('Hero', () => {
     expect(screen.getByAltText('Harold Rojas Avatar')).toHaveAttribute('src', '/avatar.webp');
     expect(container.querySelector('a[href="mailto:harolrop14@gmail.com"]')).toBeInTheDocument();
     expect(container.querySelector('a[href="https://www.linkedin.com/in/haroldrojasp/"]')).toBeInTheDocument();
-    expect(container.querySelector('a[href="https://github.com/charol29"]')).toBeInTheDocument();
+    expect(container.querySelector('a[href="https://github.com/charold29"]')).toBeInTheDocument();
   });
 });
