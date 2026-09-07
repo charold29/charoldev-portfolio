@@ -6,7 +6,6 @@ describe('Navbar', () => {
   it('renders the brand and resume link', () => {
     render(<Navbar darkMode={false} setDarkMode={vi.fn()} />);
 
-    expect(screen.getByRole('link', { name: 'CharolDev' })).toHaveAttribute('href', '#');
     expect(screen.getByRole('link', { name: 'Resume' })).toHaveAttribute(
       'href',
       '/Harold_Rojas_CV_EN_v2.pdf',

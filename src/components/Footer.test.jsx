@@ -3,9 +3,9 @@ import { describe, expect, it } from 'vitest';
 import Footer from './Footer';
 
 describe('Footer', () => {
-  it('renders the copyright notice', () => {
+  it('renders the CharolDev signature', () => {
     render(<Footer />);
 
-    expect(screen.getByRole('contentinfo')).toHaveTextContent('© 2026 - All rights reserved');
+    expect(screen.getByRole('link', { name: 'CharolDev' })).toHaveAttribute('href', '#');
   });
 });
